@@ -1,6 +1,6 @@
 function displayNextFloor(f) {
    // console.log(f);
-   let current = document.getElementById("current").value;
+   let current = document.getElementById('current').value;
    // console.log(current);
 
    if (current < f) {
@@ -10,19 +10,19 @@ function displayNextFloor(f) {
       greater(f);
       // document.getElementById("msg").innerHTML = `GOING DOWN👇️`;
    } else if (current == f) {
-      alert("You are already in " + f + " floor");
+      alert('You are already in ' + f + ' floor');
    }
 }
 
 function less(f) {
    // console.log(f);
-   document.getElementById("show1").style.display = "block";
-   let current = document.getElementById("current").value;
+   document.getElementById('show1').style.display = 'block';
+   let current = document.getElementById('current').value;
    // console.log(current);
 
    let x = parseInt(current) + 1;
    let arr = [];
-   let text = "";
+   let text = '';
    for (let i = x; i <= f; i++) {
       text = i;
       arr.push(text);
@@ -40,29 +40,33 @@ function less(f) {
          }
 
          // console.log(arr[index]);
-         document.getElementById("show1").innerHTML = arr[index] + `👆️`;
+         document.getElementById('show1').innerHTML = arr[index] + `👆️`;
       }, delay);
    }
 
    delayPrint(arr, 2000);
 
    setTimeout(() => {
-      document.getElementById("msg").innerHTML = "";
-      document.getElementById("current").value = f;
+      document.getElementById('msg').innerHTML = '';
+      document.getElementById('current').value = f;
       reached = f;
-      document.getElementById("msg1").innerHTML = "Reached floor : " + reached;
+
+      setInterval(() => {
+         document.getElementById('msg1').innerHTML =
+            'Reached floor : ' + reached;
+      }, 2000);
    }, diff * 2000);
 }
 
 function greater(f) {
    // console.log(f);
-   document.getElementById("show1").style.display = "block";
-   let current = document.getElementById("current").value;
+   document.getElementById('show1').style.display = 'block';
+   let current = document.getElementById('current').value;
    // console.log(current);
 
    let x = parseInt(current) - 1;
    let arr = [];
-   let text = "";
+   let text = '';
    for (let i = x; i >= f; i--) {
       text = i;
       arr.push(text);
@@ -80,16 +84,20 @@ function greater(f) {
          }
 
          // console.log(arr[index]);
-         document.getElementById("show1").innerHTML = arr[index] + `👇️`;
+         document.getElementById('show1').innerHTML = arr[index] + `👇️`;
       }, delay);
    }
 
    delayPrint(arr, 2000);
 
    setTimeout(() => {
-      document.getElementById("msg").innerHTML = "";
-      document.getElementById("current").value = f;
+      document.getElementById('msg').innerHTML = '';
+      document.getElementById('current').value = f;
       reached = f;
-      document.getElementById("msg1").innerHTML = "Reached floor : " + reached;
+
+      setInterval(() => {
+         document.getElementById('msg1').innerHTML =
+            'Reached floor : ' + reached;
+      }, 2000);
    }, diff * 2000);
 }
